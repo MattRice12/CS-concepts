@@ -2,17 +2,18 @@
 # 2) Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining. This will be the sorted list.
 
 def mergesort(arr)
-  n = 0
-  while n < arr.length
-    compare_arr = [arr[n], arr[n + 1]]
-    return print arr if compare_arr[1] == nil
-    if compare_arr[0] > compare_arr[1]
-      arr[n] = compare_arr[1]
-      arr[n + 1] = compare_arr[0]
-    end
-    n += 2
-  end
-  print arr
+  # arr_new = arr.partition { |i| (arr.index(i) + 1) <= (arr.length / 2)}
+  arr_new = recursive_partition(arr)
+  print arr_new
 end
 
-mergesort([1, 7, 10, 5, 3, 2, 6, 9])
+def recursive_partition(arr)
+  arr = arr.partition { |i| (arr.index(i) + 1) <= (arr.length / 2)}
+  arr = arr.map do |a|
+    a = recursive_partition(a) unless a.length <= 1
+    a
+  end
+  arr
+end
+
+mergesort([1, 7, 10, 5, 3, 2, 6, 9, 11])
