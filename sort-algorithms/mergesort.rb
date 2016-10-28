@@ -16,10 +16,7 @@ def merge(left, right)
   [right.first] + merge(left, right[1..right.length])
 end
 
-print merge_sort([1, 7, 10, 5, 3, 2, 6, 9, 11])
-puts
-print merge_sort([])
-puts
-print merge_sort([44, 99, 1, -30, 10023, 45])
-puts
-print merge_sort([1, 1, 1, 1, 1, 1])
+puts merge_sort([1, 7, 10, 5, 3, 2, 6, 9, 11]).inspect
+puts merge_sort([]).inspect
+puts merge_sort([44, 99, 1, -30, 10023, 45]).inspect
+puts merge_sort([1, 1, 1, 1, 1, 1]).inspect
