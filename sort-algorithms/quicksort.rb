@@ -29,11 +29,11 @@ arr2 = ["a", "b", "f", "e", "d"]
 arr3 = [5, 4, 3, 2, 1]
 
 
-# puts arr.quicksort.inspect
-#
-# puts arr2.quicksort.inspect
+puts arr.quicksort.inspect
 
-puts arr.quicksort_two.inspect
+puts arr2.quicksort.inspect
+
+# puts arr.quicksort_two.inspect
 # puts arr3.quicksort_two.inspect
 
 
