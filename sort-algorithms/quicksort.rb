@@ -11,15 +11,15 @@ class Array
     self.map do |piv|
       pivot = self.index(piv)
       storeIndex = pivot + 1
-      i = pivot + 1
-      while i < self.length
-        # puts "#{i}------#{self[pivot]} -- #{piv}"
-        if self[i] < self[pivot]
-          self[i], self[storeIndex] = self[storeIndex], self[i]
+      self[(pivot + 1)..self.length].map do |i|
+        dex = self.index(i)
+        puts "#{self[dex]}------#{self[pivot]} -- #{piv}"
+        if self[dex] < self[pivot]
+          self[dex], self[storeIndex] = self[storeIndex], self[dex]
           storeIndex += 1
         end
         self[pivot], self[storeIndex - 1] = (self[storeIndex - 1]), self[pivot]
-        i += 1
+        dex += 1
       end
     end
     self
