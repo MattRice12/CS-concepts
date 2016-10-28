@@ -2,11 +2,9 @@ class Array
   def bubblesort
     return [] if empty?
     size.times do
-      self.each_with_index.map do |val, i|
+      each_with_index do |val, i|
         unless (i + 1) >= size
-          if self[i] > self[i + 1]
-            self[i], self[i + 1] = self[i + 1], self[i]
-          end
+          self[i], self[i + 1] = self[i + 1], self[i] if self[i] > self[i + 1]
         end
       end
     end
