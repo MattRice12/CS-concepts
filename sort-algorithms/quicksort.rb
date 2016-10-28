@@ -8,19 +8,17 @@ class Array
 
   def quicksort_two
     return [] if empty?
-    self.map do |piv|
-      pivot = self.index(piv)
+    map do |piv|
+      pivot = index(piv)
       storeIndex = pivot + 1
-      self[(pivot + 1)..self.length].map do |i|
-        dex = self.index(i)
-        puts "#{self[dex]}------#{self[pivot]} -- #{piv}"
-        if self[dex] < self[pivot]
+      self[(pivot + 1)..length].map do |i|
+        dex = index(i)
+        if i < self[pivot]
           self[dex], self[storeIndex] = self[storeIndex], self[dex]
           storeIndex += 1
         end
-        self[pivot], self[storeIndex - 1] = (self[storeIndex - 1]), self[pivot]
-        dex += 1
       end
+      self[pivot], self[storeIndex - 1] = (self[storeIndex - 1]), self[pivot]
     end
     self
   end
