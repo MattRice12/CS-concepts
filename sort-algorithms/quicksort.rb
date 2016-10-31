@@ -16,21 +16,23 @@ class Array
     return *left.quicksort, pivot, *right.quicksort
   end
 
+
   def quicksort_two
     return [] if empty?
-    map do |piv|
-      pivot = index(piv)
-      storeIndex = pivot + 1
-      self[(pivot + 1)..length].map do |i|
-        dex = index(i)
-        if i < self[pivot]
-          self[dex], self[storeIndex] = self[storeIndex], self[dex]
-          storeIndex += 1
-        end
-      end
-      self[pivot], self[storeIndex - 1] = (self[storeIndex - 1]), self[pivot]
+
+    pivot_index = (length / 2).to_i
+    pivot_value = self[pivot_index]
+    delete_at(pivot_index)
+
+    lesser = Array.new
+    greater = Array.new
+
+    each do |x|
+      lesser << x if x <= pivot_value
+      greater << x if x > pivot_value
     end
-    self
+
+    return lesser.quicksort + [pivot_value] + greater.quicksort_two
   end
 end
 
@@ -39,15 +41,20 @@ arr2 = ["a", "b", "f", "e", "d"]
 arr3 = [5, 4, 3, 2, 1]
 
 
-puts arr.quicksort.inspect
-
-puts arr2.quicksort.inspect
-
-puts arr3.quicksort.inspect
+# puts arr.quicksort.inspect
+#
+# puts arr2.quicksort.inspect
+#
+# puts arr3.quicksort.inspect
 
 
 # puts arr.quicksort_two.inspect
+# puts arr2.quicksort_two.inspect
 # puts arr3.quicksort_two.inspect
+
+puts arr.quicksort_two.inspect
+puts arr2.quicksort_two.inspect
+puts arr3.quicksort_two.inspect
 
 
 # for each unsorted partition
