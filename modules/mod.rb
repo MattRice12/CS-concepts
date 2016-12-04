@@ -1,15 +1,19 @@
 module Mod
   WORLD_EMPEROR = "Lex Luthor"
 
-  def Mod.all_caps(string)
+  def all_caps(string)
     string.upcase
   end
 
-  def Mod.back_it_up(string)
+  def back_it_up(string)
     string.reverse
   end
 
-  def Mod.alphebatize(string)
+  def alphebatize(string)
     string.chars.sort.join
+  end
+
+  def Mod.lower_case(string)
+    string.downcase
   end
 end
