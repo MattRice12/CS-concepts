@@ -28,11 +28,22 @@ class User
 end
 
 class Sentence
+  include Mod
+  include BoxLabels
+
   def whisper(string)
     Mod.lower_case(string)
   end
+
+  def yell(string)
+    string.capitalize
+  end
 end
 
+
+
+puts Mod.lower_case("HI THEREHAHAH there")
+puts BoxLabels.small_font("OKAY OKAY")
 
 puts User.whole_name("Jim", "Jones")
 puts User.new.backwards_name("Jim", "Jones")
@@ -44,3 +55,5 @@ puts User.all_caps("hi there")
 puts User.new.all_caps("bye there")
 
 puts Sentence.new.whisper("HEY... COME CLOSE I NEED TO TELL YOU SOMETHING...")
+
+puts Sentence.new.yell("hey BOY, i'm gonna give you a whoopin!")
