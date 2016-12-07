@@ -1,11 +1,13 @@
 # Overloading Methods
+Method Overloading is a feature that allows a class to have two or more methods having same name, if their argument lists are different.
+
 Method overloading can be achieved by declaring two methods with the same name and different signatures. These different signatures can be either:
   1. Arguments with different data types
     `method(int a, int b)` vs `method(String a, String b)`
   2. Variable number of arguments
     `method(a)` vs `method(a, b)`
 
-  We cannot achieve method overloading using the first way because there is no data type declaration in ruby (dynamic typed language). So the only way to define the above method is def(a,b)
+  In Ruby, we cannot achieve method overloading using the first way because Ruby has no data type declaration (Ruby is a *dynamic typed language*). So the only way to define the above method is def(a,b)
 
   With the second option, it might look like we can achieve method overloading, but we can't. Let say I have two methods with different number of arguments:
 
